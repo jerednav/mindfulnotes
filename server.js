@@ -1,53 +1,46 @@
-const express = require('express') //help build out API
+const express = require('express')
 const app = express()
-const mongoose = require('mongoose') //build out models and talking to database
-const passport = require('passport') //comes with a nice strategy we can use to tal to Microsoft
-identity platform
-const session = require('express-session') //to stay logged in
+const mongoose = require('mongoose')
+const passport = require('passport')
+const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const connectDB = require('./config/database') //access database through config folder 
-//and we can use the callback function connectDB
-const authRoutes = require('./routes/auth') //requests for authentication
-const homeRoutes = require('./routes/home') //home page
-const todoRoutes = require('./routes/todos') //requests for todos
-//servers will hear the request and hand it off to the appropriate controller, to seperate our concerns
-//making sure my requests are making it to the correct controller
+const flash = require('express-flash')
+const logger = require('morgan')
+const connectDB = require('./config/database')
+const mainRoutes = require('./routes/main')
+const todoRoutes = require('./routes/todos')
 
-require('dotenv').config({path: './config/.env'}) //allowing us to use our .env file in the application
+require('dotenv').config({path: './config/.env'})
 
 // Passport config
-require('./config/passport')(passport)//require a file that will handle passport stuff
+require('./config/passport')(passport)
 
-connectDB() //callback function and telling it to run, which will connect us to our database
+connectDB()
 
-app.set('view engine', 'ejs') //use ejs as view engine, pass our data into to make it HTML
-app.use(express.static('public')) //enable us to use express to handle our static files (Javascript)
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-//looking at data that's being sent with our request
-
+app.use(logger('dev'))
 // Sessions
-app.use( //keeping our users logged in
+app.use(
     session({
       secret: 'keyboard cat',
       resave: false,
       saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }), 
-        //storing each of our sessions into mongoDB
-        //making sure once our users are logged in, they can stay logged in
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   )
   
 // Passport middleware
-app.use(passport.initialize()) 
+app.use(passport.initialize())
 app.use(passport.session())
-//to set up passport and our session, so users can stay logged in.
 
+app.use(flash())
   
-app.use('/', homeRoutes) //home page
-app.use('/auth', authRoutes) 
+app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
-})    //our server is listening and is ready to run
+})    
