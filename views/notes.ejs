@@ -9,11 +9,18 @@
 </head>
 <body>
     <h1>Notes</h1>
-    <ul>
-
-
+  
+    <% notes.forEach(el => { %>
+        <li class = "noteGroup" data-id='<%=el._id%>'>
+            <span class="note"><%= el.title %><BR>
+            <%= el.body %> </span>
+            <span class ='del'> Delete </span>
+    </li>
+    <% }) %>
+        
     <form action="/notes/createNote" method='POST'>
-        <input type="text" placeholder="Enter Note" name='noteItem'>
+        <input type="text" placeholder="Enter Title" name="noteTitle"><br>
+        <input type="text" placeholder="Enter Note" name='noteBody'>
         <input type="submit">
     </form>
 
