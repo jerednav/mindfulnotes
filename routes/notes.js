@@ -3,14 +3,14 @@ const router = express.Router()
 const notesController = require('../controllers/notes') 
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', ensureAuth, notesController.getTodos)
+router.get('/', ensureAuth, notesController.getNotes)
 
 router.post('/createNote', notesController.createNote)
 
-router.put('/markComplete', notesController.markComplete)
+// router.put('/markComplete', notesController.markComplete)
 
-router.put('/markIncomplete', notesController.markIncomplete)
+// router.put('/markIncomplete', notesController.markIncomplete)
 
-router.delete('/deleteTodo', notesController.deleteTodo)
+// router.delete('/deleteTodo', notesController.deleteTodo)
 
 module.exports = router
