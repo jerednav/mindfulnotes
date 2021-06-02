@@ -1,14 +1,65 @@
-h1{
-    color: red;
-}
-.completed{
-    text-decoration: line-through;
-    color: gray;
-}
-.not{
-    text-decoration: underline;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    }
+    
+    Clear fix hack
+    .clearfix:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    
+    /******************************************
+    /* LAYOUT
+    /*******************************************/
+
+    h1 {
+        color: black;  
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        font-size: 10rem;
+        }   
+    .login {
+        text-align: center;
+        color: black;
+    }
+
+    body {
+        color: #0c0f0a;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+    }
+    
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
-.note{
-    border: 2px;
+form input {
+    width: 582px;
+    height: 43px;
+    margin: 5px 0px 20px 0px;
+    padding-left: 20px;
+}
+
+
+/* // Notes Page */
+
+.noteDisplay {
+    display: flex;
+    max-width: 1200px;
+    margin: 5px;
+    align-self: auto;
+    justify-content: center;
 }

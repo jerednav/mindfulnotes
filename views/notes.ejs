@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mindful - Home</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
-    <h1>Notes</h1>
+    <h1>mindful</h1>
+    <h2>Notes</h2>
   
+    <section>
     <% notes.forEach(el => { %>
-        <li class = "noteGroup" data-id='<%=el._id%>'>
+        <div class = "noteDisplay" data-id='<%=el._id%>'>
             <span class="note"><%= el.title %><BR>
             <%= el.body %> </span>
             <span class ='del'> Delete </span>
-    </li>
+         </div>
     <% }) %>
         
+</section>
+
     <form action="/notes/createNote" method='POST'>
         <input type="text" placeholder="Enter Title" name="noteTitle"><br>
         <input type="text" placeholder="Enter Note" name='noteBody'>
-        <input type="submit">
+        <input type="submit" value="Create Note">
     </form>
 
     <a href="/logout">Logout</a>
