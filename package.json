@@ -1,5 +1,5 @@
 {
-  "name": "todolist-mvc-auth-microsoft",
+  "name": "mindful-notes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -25,5 +25,14 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerednav/mindfulApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jerednav/mindfulApp/issues"
+  },
+  "homepage": "https://github.com/jerednav/mindfulApp#readme"
 }
