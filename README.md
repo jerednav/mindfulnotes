@@ -1,3 +1,3 @@
 # mindful notes
 
-##minimal and intentional note-taking
+## minimal and intentional note-taking
