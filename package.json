@@ -1,7 +1,7 @@
 {
   "name": "mindful-notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "## minimal and intentional note-taking",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",

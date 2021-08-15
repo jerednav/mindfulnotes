@@ -11,7 +11,16 @@
 <body>
     <h1>mindful</h1>
     <h2>Notes</h2>
-  
+  <div class="notes" id="app">
+    <div class="notes_sidebar">
+        <button class="addNote" type="button">Add Note</button>
+        <div class="notesList">
+            <div class="notesListItem">
+                <ul>hello.</ul>
+            </div>
+        </div>
+    </div>
+  </div>
     <section>
     <% notes.forEach(el => { %>
         <div class = "noteDisplay" data-id='<%=el._id%>'>
