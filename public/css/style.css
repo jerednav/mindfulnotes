@@ -42,7 +42,7 @@
     
 form {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     align-items: center;
 }
 
@@ -75,9 +75,24 @@ button {
     padding: 10px;
 }
 
+h2 {
+    justify-content: center;
+}
 
 /* // Notes Page */
+.notes_sidebar {
+    display: flex;
+    justify-content: center;
+}
 
+.noteBody {
+    height: 100px;
+}
+
+.notesListItem {
+    display:flex;
+    justify-content: center;
+}
 .noteDisplay {
     display: flex;
     max-width: 1200px;
