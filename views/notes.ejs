@@ -9,40 +9,47 @@
     
 </head>
 <body>
-    <h1>mindful</h1>
-<h2>Notes</h2>
-  <div class="notes" id="app">
-
-    <div class="notes_sidebar">
-        
-<div class='createNoteTable'>
-        <form action="/notes/createNote" method='POST'>
-            <input type="text" placeholder="Enter Title" name="noteTitle"><br>
-            <input type="text" placeholder="Enter Note" class='noteBody'>
-            <input type="submit" value="Create Note">
-        </form>
-    </div>        
-    
-        <div class="notesList">
-            <div class="notesListItem">
-                <ul> <% notes.forEach(el => { %>
-                    <div class = "noteDisplay" data-id='<%=el._id%>'>
-                        <span class="note"><%= el.title %><BR>
-                        <%= el.body %> </span>
-                        <span class ='del'> Delete </span>
-                     </div>
-                <% }) %>.</ul>
-            </div>
-        </div>
+    <div class='header'>
+        <h1>mindful</h1>    
+        <h2>Notes</h2>
     </div>
-  </div>
-    <section>
+  <div class="notesContainer" id="app">
+
+    
+<div class='createNoteTable'>
+    <form action="/notes/createNote" method='POST'>
+        <input type="text" placeholder="Enter Title" name="noteTitle"><br>
+        <input type="text" placeholder="Enter Note" name ="noteBody" class='noteBody'>
+        <input type="submit" value="Create Note">
+    </form>
+</div>        
+
+    <div class="notesList">
+    
+            <ul> 
+                <% notes.forEach(el => { %>
+                <div class = "noteDisplay" data-id='<%=el._id%>'>
+                    <span class="noteTitle"> 
+                        <%= el.title %>
+                        </span>
+                        <span class="noteBodyDisplay">
+                    <%= el.body %> </span>
+                    <span class ='del'> Delete </span>
+                 </div>
+                <% }) %>.
+            </ul>
+    </div>
+</div>
+<section>
    
         
 </section>
 
-   
+   <div class="logout">
     <a href="/logout">Logout</a>
+</div>
+
+
 
     <script src="js/main.js"></script>
 </body>

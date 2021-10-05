@@ -47,7 +47,7 @@ form {
 }
 
 form input {
-    width: 582px;
+    width: 600px;
     height: 43px;
     margin: 5px 0px 20px 0px;
     padding-left: 20px;
@@ -59,7 +59,7 @@ button {
     font-family: 'Montserrat';
     font-weight: 100px;
     font-size: 22px;
-    width: 200px;
+    width: 100px;
     height: 68px;
     border: 1px solid black;
     border-radius: 6px;
@@ -79,24 +79,65 @@ h2 {
     justify-content: center;
 }
 
-/* // Notes Page */
-.notes_sidebar {
-    display: flex;
-    justify-content: center;
-}
-
-.noteBody {
-    height: 100px;
-}
-
-.notesListItem {
+.header {
     display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* // Notes Page */
+.notesContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
-.noteDisplay {
+
+.createNoteTable {
     display: flex;
-    max-width: 1200px;
-    margin: 5px;
-    align-self: auto;
+    flex-direction:column;
     justify-content: center;
+    align-items: center;
+}
+
+.notesList {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.noteDisplay {
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.noteTitle {
+    font-size: 40px;
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.del {
+    color: #000;
+    background: #fff;
+    font-family: 'Montserrat';
+    font-weight: 100px;
+    font-size: 12px;
+    width: 50px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-shadow: 0 4 4 (0, 0, 0, 0.25);
+    margin: 10px;
 }
